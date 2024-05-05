@@ -20,6 +20,14 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui({
+    themes: {
+      dark: {
+        colors: {
+          background: "#00030b"
+        }
+      }
+    }
+  })],
 };
 export default config;
