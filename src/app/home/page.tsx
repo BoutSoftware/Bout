@@ -40,7 +40,7 @@ export default function HomePage() {
       {/* Services */}
       <section className="flex flex-col items-center justify-center p-8 gap-16 relative w-full">
         <Image src="/constellation.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-top" />
-        <div className={`${styles.radialGradient} absolute w-full sm:w-3/5  aspect-square top-0 -translate-y-1/4`} />
+        <div className={`${styles.radialGradient} absolute w-full sm:w-4/5  aspect-square top-0 -translate-y-1/4`} />
 
         <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>Our Services</h2>
 
@@ -52,21 +52,9 @@ export default function HomePage() {
           />
 
           <ServiceCard
-            icon="/web-apps.svg"
-            title="Web Apps"
-            description="Solutions that will solve day-to-day problems, Accessible from any device!"
-          />
-
-          <ServiceCard
             icon="/mobile-apps.svg"
             title="Mobile Apps"
             description="Bring your ideas to life, and make them reach thousands of hands."
-          />
-
-          <ServiceCard
-            icon="/desktop-apps.svg"
-            title="Desktop Apps"
-            description="Automate your business, avoid errors, and make your processes more efficient."
           />
 
           <ServiceCard
@@ -76,11 +64,54 @@ export default function HomePage() {
           />
 
           <ServiceCard
+            icon="/web-apps.svg"
+            title="Web Apps"
+            description="Solutions that will solve day-to-day problems, Accessible from any device!"
+          />
+
+          <ServiceCard
             icon="/websites.svg"
             title="Web Sites"
             description="Showcase your business, and make it accessible to everyone."
           />
 
+          <ServiceCard
+            icon="/desktop-apps.svg"
+            title="Desktop Apps"
+            description="Automate your business, avoid errors, and make your processes more efficient."
+          />
+        </div>
+      </section>
+
+      {/* Tech Toolbox */}
+      <section className="flex flex-col-reverse sm:flex-row justify-center items-center p-8 gap-12 relative py-24">
+        <Image src="/images/landing/backgrounds/hexagons.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-top" />
+        <div className="flex flex-col items-center gap-8 w-full max-w-md">
+          <TechnologyCard
+            icon="/images/landing/tech/nextjs.svg"
+            title="Next.js"
+            description="To develop all kinds of web platforms and applications"
+          />
+          <TechnologyCard
+            icon="/images/landing/tech/mongodb.svg"
+            title="MongoDB"
+            description="For your database needs, scalable and secure information"
+            justify="end"
+          />
+          <TechnologyCard
+            icon="/images/landing/tech/raspberrypi.svg"
+            title="Raspberry Pi"
+            description="For IoT solutions, home automation, and more"
+          />
+        </div>
+        <div className="flex flex-col items-center gap-8 max-w-md">
+          <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>
+            Our Tech Toolbox
+          </h2>
+          <p className="text-center max-w-xl">
+            This is the innovative arsenal driving our software solutions.
+            Dive into the heart of our operations and all the advanced technologies we use to make your ideas a reality.
+          </p>
         </div>
       </section>
     </>
@@ -104,5 +135,21 @@ function ServiceCard({ icon, title, description }: { icon: string, title: string
         </div>
       </PopoverContent>
     </Popover>
+  )
+}
+
+function TechnologyCard({ icon, title, description, justify = "start" }: { icon: string, title: string, description: string, justify?: "start" | "end" }) {
+  return (
+    <div className={`flex items-center gap-4 p-4 rounded-lg bg-slate-400 bg-opacity-5 backdrop-blur-sm border border-slate-400 border-opacity-40 cursor-pointer w-full max-w-sm ${justify === "end" ? "self-end" : "self-start"}`}>
+      <Image src={icon} alt={title} width={100} height={100} className="flex-shrink-0 w-24 h-auto" />
+      <div className="flex flex-col gap-2">
+        <h3 className="text-xl font-semibold">
+          {title}
+        </h3>
+        <p className="text-base">
+          {description}
+        </p>
+      </div>
+    </div>
   )
 }

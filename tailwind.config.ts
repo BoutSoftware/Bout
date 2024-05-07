@@ -11,12 +11,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      glass: {
-        DEFAULT: {
-          bg: "rgba(255, 255, 255, 0.1)",
-          blur: "20px",
-        },
-      },
     },
   },
   darkMode: "class",
