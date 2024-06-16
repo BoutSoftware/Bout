@@ -1,10 +1,10 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./globals.css";
 import { GlobalProviders } from "@/contexts/GlobalProviders";
 
-
 export const metadata: Metadata = {
-  title: "Bout",
+  title: "Bout | Software Development",
   description: "A software development company that will build what you need to grow your business, or even start one!",
   keywords: ["software", "development", "business", "website", "mobile", "app", "iot", "tech", "company"],
   icons: "/BoutLogoSolo.svg",

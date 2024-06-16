@@ -1,7 +1,59 @@
-import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarMenuToggle } from "@nextui-org/react";
+import { Button, Chip, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
+
+// TODO: Move all images to their respective folder locations
+// TODO: Move sections to their respective components under @/components/home
+// TODO: Move components to their respective section components
+// TODO: Move Navbar to its own component and maybe add it to the layout
+// TODO: Implement navbar menu
+// TODO: Add animations with framer-motion
+
+const chips = {
+  left: [
+    "Specialize",
+    "Company processes",
+    "Enhance Efficiency",
+    "Creative",
+    "Streamlining",
+    "Developing",
+    "Specialize",
+    "Company processes",
+    "Enhance Efficiency",
+    "Creative",
+    "Streamlining",
+    "Efficient",
+    "Enhance Efficiency",
+    "Technology",
+    "Innovative",
+    "Developing",
+    "Software solutions",
+  ],
+  right: [
+    "Business Tools",
+    "Mobile Apps",
+    "IoT Solutions",
+    "Web Platforms",
+    "Software Development",
+    "Data",
+    "Desktop Apps",
+    "Web Apps",
+    "Automation",
+    "Data",
+    "Desktop Apps",
+    "Desktop Apps",
+    "Web Apps",
+    "Automation",
+    "Data",
+    "Desktop Apps",
+    "Web Apps",
+    "Automation",
+    "WebSites",
+    "Software",
+  ]
+
+}
 
 export default function HomePage() {
   return (
@@ -14,8 +66,12 @@ export default function HomePage() {
         </NavbarBrand>
 
         <NavbarContent justify="end">
-          <Link href="/home/#contact" color="foreground" underline="hover">Contact Us</Link>
-          <span className="material-symbols-outlined">menu</span>
+          <NavbarItem>
+            <Link href="/home/#contact" color="foreground" underline="hover">Contact Us</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <span className="material-symbols-outlined">menu</span>
+          </NavbarItem>
         </NavbarContent>
       </Navbar>
 
@@ -24,21 +80,18 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className={`flex flex-col items-center justify-center p-8 gap-12 h-[85vh] overflow-hidden relative`}>
-        <Image src="/constellation.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-bottom" />
+        <Image src="/constellation.svg" alt="Constellation" width={5} height={5} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-bottom" priority />
         <h1 className={`text-5xl sm:text-6xl font-bold text-center ${styles.textGradient} max-w-xl`}>Build your future with Bout</h1>
 
-        <h2 className="text-center max-w-xl">
+        <h2 className="text-center text-lg max-w-xl">
           A software development company that will build what you need to grow your business, or even <span className="font-semibold">start one!</span>
         </h2>
 
         <Button color="default" size="lg" className="backdrop-blur-sm bg-opacity-10 px-10 bg-slate-400" as={Link} href="/home/#contact">Contact Us</Button>
-        {/* <div className="bg-slate-400 bg-opacity-10 backdrop-blur-sm p-3 px-9 rounded-lg cursor-pointer">
-          Contact Us
-        </div> */}
       </section>
 
       {/* Services */}
-      <section className="flex flex-col items-center justify-center p-8 gap-16 relative w-full">
+      <section className="flex flex-col items-center justify-center p-8 py-16 gap-16 relative w-full">
         <Image src="/constellation.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-top" />
         <div className={`${styles.radialGradient} absolute w-full sm:w-4/5  aspect-square top-0 -translate-y-1/4`} />
 
@@ -84,7 +137,7 @@ export default function HomePage() {
       </section>
 
       {/* Tech Toolbox */}
-      <section className="flex flex-col-reverse sm:flex-row justify-center items-center p-8 gap-12 relative py-24">
+      <section className="flex flex-col-reverse sm:flex-row justify-center items-center p-8 gap-12 relative py-16">
         <Image src="/images/landing/backgrounds/hexagons.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-top" />
         <div className="flex flex-col items-center gap-8 w-full max-w-md">
           <TechnologyCard
@@ -114,13 +167,44 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* About */}
+      <section className="flex w-full px-8 py-16 justify-center items-center gap-12 relative">
+        <div className={`${styles.radialGradient} absolute w-full sm:w-3/5  aspect-square top-0 -translate-y-1/4`} />
+
+        {/* Left chips */}
+        <div className="hidden md:flex items-center justify-start overflow-hidden gap-4 w-full max-w-sm flex-wrap opacity-20 absolute left-0">
+          {chips.left.map((chip, index) => (
+            <Chip key={index} size="lg">
+              {chip}
+            </Chip>
+          ))}
+        </div>
+        {/* Right chips */}
+        <div className="hidden md:flex items-center justify-end overflow-hidden gap-4 w-full max-w-sm flex-wrap opacity-20 absolute right-0">
+          {chips.right.map((chip, index) => (
+            <Chip key={index} size="lg">
+              {chip}
+            </Chip>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-8 w-full max-w-lg min-w-96  backdrop-blur-sm p-6 rounded-3xl bg-background bg-opacity-10 ">
+          <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>
+            About Us
+          </h2>
+          <p className="text-center text-lg">
+            We specialize in streamlining company processes through innovative technological solutions. Our focus lies in developing efficient business tools to optimize information management, automate processes, and ultimately reduce costs and errors. With a commitment to creating diverse technological products, we aim to enhance efficiency across all facets of operations.
+          </p>
+        </div>
+      </section>
     </>
   )
 }
 
 function ServiceCard({ icon, title, description }: { icon: string, title: string, description?: string }) {
   return (
-    <Popover showArrow>
+    <Popover showArrow backdrop="blur">
       <PopoverTrigger>
         <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-slate-400 bg-opacity-10 backdrop-blur-sm  border border-slate-400 border-opacity-40 cursor-pointer w-full max-w-xs">
           <Image src={icon} alt={title} width={64} height={64} />
