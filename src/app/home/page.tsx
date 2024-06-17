@@ -206,7 +206,7 @@ export default function HomePage() {
             Your Vision, Our Code
           </h2>
           <p>
-            Your business idea is more than just a thought - it's a potential masterpiece waiting to be crafted. We turn your vision into reality, translating concepts into tangible software solutions. Let us be the architects of your digital success.
+            Your business idea is more than just a thought - it&apos;s a potential masterpiece waiting to be crafted. We turn your vision into reality, translating concepts into tangible software solutions. Let us be the architects of your digital success.
           </p>
           <Button color="default" size="lg" className="backdrop-blur-sm bg-opacity-10 px-10 bg-slate-400" as={Link} href="/home/#contact">
             Contact Us
