@@ -232,7 +232,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className="flex flex-col w-full px-8 py-16 justify-center items-center gap-12 relative">
+      <section className="flex flex-col w-full px-8 py-16 justify-center items-center gap-12 relative" id="contact">
         <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>
           Land Your Idea,
           <br />
