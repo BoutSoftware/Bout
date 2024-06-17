@@ -1,4 +1,4 @@
-import { Button, Chip, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { Button, Chip, Input, Link, LinkIcon, Navbar, NavbarBrand, NavbarContent, NavbarItem, Textarea } from "@nextui-org/react";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import Image from "next/image";
 import styles from "./HomePage.module.css";
@@ -198,6 +198,109 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Section 1: Your Vision, Our Code */}
+      <section className="flex w-full px-8 py-16 justify-center items-center gap-12 relative">
+        <div className="flex flex-col gap-8 items-start max-w-md">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-center ${styles.textGradient}`}>
+            Your Vision, Our Code
+          </h2>
+          <p>
+            Your business idea is more than just a thought - it's a potential masterpiece waiting to be crafted. We turn your vision into reality, translating concepts into tangible software solutions. Let us be the architects of your digital success.
+          </p>
+          <Button color="default" size="lg" className="backdrop-blur-sm bg-opacity-10 px-10 bg-slate-400" as={Link} href="/home/#contact">
+            Contact Us
+          </Button>
+        </div>
+        <Image src="/images/landing/sections/riegoMobile.png" alt="Image of project Riego" width={400} height={400} className="aspect-square object-cover" />
+      </section>
+
+      {/* Section 2: Streamline Your Business */}
+      <section className="flex w-full px-8 py-16 justify-center items-center gap-12 relative">
+        <Image src="/images/landing/sections/riegoLaptop.png" alt="Image of project Riego" width={540} height={540} className="aspect-video object-contain" />
+        <div className="flex flex-col gap-8 items-start max-w-md">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-start ${styles.textGradient}`}>
+            Streamline Your Business with Custom Software
+          </h2>
+          <p>
+            Discover how our tailored software solutions can optimize your business operations, enhancing efficiency and maximizing productivity.
+          </p>
+          <Button color="default" size="lg" className="backdrop-blur-sm bg-opacity-10 px-10 bg-slate-400" as={Link} href="/home/#our-projects">
+            Discover Projects
+          </Button>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="flex flex-col w-full px-8 py-16 justify-center items-center gap-12 relative">
+        <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>
+          Land Your Idea,
+          <br />
+          Contact Us For Free!
+        </h2>
+
+        <div className="flex items-center gap-12 w-full justify-center">
+          <form className="w-full max-w-sm flex flex-col items-center gap-4">
+            <Input
+              label="Full Name"
+              placeholder="Write your full name"
+              classNames={{
+                inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
+              }}
+            />
+            <Input
+              label="Email"
+              placeholder="you@example.com"
+              classNames={{
+                inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
+              }}
+            />
+            <Input
+              label="Company"
+              placeholder="Example Inc."
+              classNames={{
+                inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
+              }}
+            />
+            <Textarea label="Message"
+              placeholder="Write your message"
+              classNames={{
+                inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
+              }}
+            />
+            <Button
+              color="default"
+              size="lg"
+              className="backdrop-blur-sm bg-opacity-10 px-24 bg-slate-400 border border-slate-600"
+              endContent={<span className="material-symbols-outlined">send</span>}
+              as={Link}
+              href="/home/#our-projects"
+            >
+              Send
+            </Button>
+          </form>
+          <div className="backdrop-blur-sm bg-opacity-10 p-16 bg-slate-400 border border-slate-600 rounded-2xl flex flex-col items-center gap-6">
+            <Image src="/images/landing/contact/icon.svg" alt="Image for contact section" width={200} height={200} className="aspect-video object-contain" />
+            <div className="flex gap-6">
+              <Link href="https://www.instagram.com/bout.sh_">
+                <Image src="/images/landing/social/insta.svg" alt="Instagram Logo" width={24} height={24} className="" />
+              </Link>
+              <Image src="/images/landing/social/tiktok.svg" alt="TikTok Logo" width={24} height={24} className="" />
+              <Image src="/images/landing/social/linkedin.svg" alt="Linkedin Logo" width={24} height={24} className="" />
+              <Image src="/images/landing/social/whats.svg" alt="Whatsapp Logo" width={24} height={24} className="" />
+            </div>
+            <Link href="mailto:contact@bout.sh" color="foreground" underline="always" className="flex items-end gap-3">
+              <Image src="/images/landing/social/mail.svg" alt="Whatsapp Logo" width={20} height={20} className="" />
+              contact@bout.sh
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <footer className="w-full relative bg-background mt-36">
+        <Image src="/images/landing/footer/vector.svg" alt="footer vector" width={1000} height={1000} className="absolute bottom-[calc(100%-2px)] h-36 w-full" />
+        <h1> hola </h1>
+      </footer>
     </>
   )
 }
