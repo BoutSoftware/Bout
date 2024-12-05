@@ -1,9 +1,49 @@
+"use client"
+
 import { Button, Input, Link, Textarea } from "@nextui-org/react";
 import Image from "next/image";
 import styles from "@/styles/HomePage.module.css";
-import React from 'react'
+import React, { useState } from 'react'
+import { useRouter } from "next/navigation";
 
 export default function ContactSection() {
+  const router = useRouter()
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: ""
+  })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const resBody = await fetch("/api/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    })
+      .then(res => res.json())
+      .catch(err => console.error(err))
+
+    if (resBody.code !== "OK") {
+      console.error(resBody)
+      alert("An error occurred while sending the message. Please try again later.")
+      return
+    }
+
+    alert("Message sent successfully! We'll follow up with you shortly.")
+    setForm({
+      name: "",
+      email: "",
+      company: "",
+      message: ""
+    })
+    router.refresh()
+  }
+
   return (
     <section className="flex flex-col w-full px-8 py-16 justify-center items-center gap-12 relative" id="contact">
       <h2 className={`text-4xl sm:text-5xl font-bold text-center ${styles.textGradient}`}>
@@ -13,13 +53,15 @@ export default function ContactSection() {
       </h2>
 
       <div className="flex flex-col-reverse sm:flex-row items-center gap-12 w-full justify-center">
-        <form className="w-full max-w-sm flex flex-col items-center gap-4">
+        <form className="w-full max-w-sm flex flex-col items-center gap-4" onSubmit={handleSubmit}>
           <Input
-            label="Full Name"
-            placeholder="Write your full name"
+            label="Your Name"
+            placeholder="How should we call you?"
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.name}
+            onValueChange={(value) => setForm({ ...form, name: value })}
           />
           <Input
             label="Email"
@@ -27,6 +69,8 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.email}
+            onValueChange={(value) => setForm({ ...form, email: value })}
           />
           <Input
             label="Company"
@@ -34,12 +78,16 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.company}
+            onValueChange={(value) => setForm({ ...form, company: value })}
           />
           <Textarea label="Message"
             placeholder="Write your message"
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.message}
+            onValueChange={(value) => setForm({ ...form, message: value })}
           />
           <Button
             color="default"
