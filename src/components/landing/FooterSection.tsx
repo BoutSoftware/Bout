@@ -74,8 +74,8 @@ export default function FooterSection() {
       </div>
 
       <div className='flex gap-4 items-center bg-white bg-opacity-5 px-4 py-2'>
-        <span>Terms</span>
-        <span>Privacy</span>
+        <Link href={"/info/legal"}>Legal</Link>
+        <Link href={"/info/privacy"}>Privacy</Link>
         <Button className='ml-auto bg-opacity-75'>
           English
           <span className='material-symbols-outlined text-lg'>keyboard_arrow_down</span>
