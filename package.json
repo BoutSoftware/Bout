@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev -p 3279",
     "ipqr": "ipqr -p 3279",
-    "build": "next build",
+    "prismaStudio": "npm run prismaUpdate && prisma studio --browser none",
+    "prismaUpdate": "prisma db push",
+    "build": "npm run prismaUpdate && next build",
     "start": "next start",
     "lint": "next lint"
   },
