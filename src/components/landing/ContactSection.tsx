@@ -4,8 +4,10 @@ import { Button, Input, Link, Textarea } from "@nextui-org/react";
 import Image from "next/image";
 import styles from "@/styles/HomePage.module.css";
 import React, { useState } from 'react'
+import { useRouter } from "next/navigation";
 
 export default function ContactSection() {
+  const router = useRouter()
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -39,6 +41,7 @@ export default function ContactSection() {
       company: "",
       message: ""
     })
+    router.refresh()
   }
 
   return (
@@ -57,6 +60,7 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.name}
             onValueChange={(value) => setForm({ ...form, name: value })}
           />
           <Input
@@ -65,6 +69,7 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.email}
             onValueChange={(value) => setForm({ ...form, email: value })}
           />
           <Input
@@ -73,6 +78,7 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.company}
             onValueChange={(value) => setForm({ ...form, company: value })}
           />
           <Textarea label="Message"
@@ -80,6 +86,7 @@ export default function ContactSection() {
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
+            value={form.message}
             onValueChange={(value) => setForm({ ...form, message: value })}
           />
           <Button
