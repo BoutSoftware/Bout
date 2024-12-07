@@ -1,4 +1,4 @@
-import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import Image from "next/image";
 import styles from "@/styles/HomePage.module.css";
 import ContactSection from "@/components/landing/ContactSection";
@@ -6,6 +6,7 @@ import AboutUsSection from "@/components/landing/AboutUsSection";
 import FooterSection from "@/components/landing/FooterSection";
 import { TechnologyCard } from "@/components/landing/TechnologyCard";
 import { ServiceCard } from "@/components/landing/ServiceCard";
+import LandingHeader from "@/components/landing/LandingHeader";
 
 // TODO: Move all images to their respective folder locations
 // TODO: Move sections to their respective components under @/components/home
@@ -18,21 +19,7 @@ export default function HomePage() {
   return (
     <>
       {/* Navbar */}
-      <Navbar className="w-full" classNames={{ wrapper: "max-w-full py-4 h-auto px-8" }}>
-        <NavbarBrand className="flex items-center space-x-2">
-          <Image src="/BoutLogoSolo.svg" alt="Logo" width={50} height={50} className="h-8 w-8" priority />
-          <span className="text-2xl font-semibold">Bout</span>
-        </NavbarBrand>
-
-        <NavbarContent justify="end">
-          <NavbarItem>
-            <Link href="/home/#contact" color="foreground" underline="hover">Contact Us</Link>
-          </NavbarItem>
-          <NavbarItem>
-            <span className="material-symbols-outlined">menu</span>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
+      <LandingHeader />
 
       {/* Circle gradient */}
       <div className={`${styles.radialGradient} absolute w-full aspect-square -translate-y-3/4`} />
@@ -43,14 +30,14 @@ export default function HomePage() {
         <h1 className={`text-5xl sm:text-6xl font-bold text-center ${styles.textGradient} max-w-xl`}>Build your future with Bout</h1>
 
         <h2 className="text-center text-lg max-w-xl">
-          A software development company that will build what you need to grow your business, or even <span className="font-semibold">start one!</span>
+          The software development company that will build what you need to grow your business, or even <span className="font-semibold">start one!</span>
         </h2>
 
         <Button color="default" size="lg" className="backdrop-blur-sm bg-opacity-10 px-10 bg-slate-400" as={Link} href="/home/#contact">Contact Us</Button>
       </section>
 
       {/* Services */}
-      <section className="flex flex-col items-center justify-center p-8 py-16 gap-16 relative w-full">
+      <section id="services" className="flex flex-col items-center justify-center p-8 py-16 gap-16 relative w-full" >
         <Image src="/constellation.svg" alt="Constellation" width={1000} height={1000} className="absolute top-0 right-0 h-full w-full object-cover -z-10 object-top" />
         <div className={`${styles.radialGradient} absolute w-full sm:w-4/5  aspect-square top-0 -translate-y-1/4`} />
 
@@ -60,7 +47,7 @@ export default function HomePage() {
           <ServiceCard
             icon="/web-platforms.svg"
             title="Web Platforms"
-            description="Integrate your business with the web, and grow like never before!"
+            description="Integrate your business with the cloud, optimize your operations, and grow like never before!"
           />
 
           <ServiceCard
@@ -69,16 +56,21 @@ export default function HomePage() {
             description="Bring your ideas to life, and make them reach thousands of hands."
           />
 
-          <ServiceCard
+          {/* <ServiceCard
             icon="/iot.svg"
             title="IoT / Home Automation"
             description="Automate your home or business, and make your life easier."
+          /> */}
+          <ServiceCard
+            icon="/iot.svg"
+            title="AI / Automation"
+            description="Integrate AI into your business, automate processes, and make better decisions."
           />
 
           <ServiceCard
             icon="/web-apps.svg"
             title="Web Apps"
-            description="Solutions that will solve day-to-day problems, Accessible from any device!"
+            description="Solutions that will solve day-to-day problems on the go, Accessible from any device!"
           />
 
           <ServiceCard
@@ -90,7 +82,8 @@ export default function HomePage() {
           <ServiceCard
             icon="/desktop-apps.svg"
             title="Desktop Apps"
-            description="Automate your business, avoid errors, and make your processes more efficient."
+            // description="Automate your business, avoid errors, and make your processes more efficient."
+            description="Make your business processes more efficient, avoid errors, and automate repetitive tasks."
           />
         </div>
       </section>

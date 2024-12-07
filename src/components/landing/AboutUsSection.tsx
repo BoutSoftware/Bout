@@ -73,7 +73,11 @@ export default function AboutUsSection() {
           About Us
         </h2>
         <p className="text-center text-lg">
-          We specialize in streamlining company processes through innovative technological solutions. Our focus lies in developing efficient business tools to optimize information management, automate processes, and ultimately reduce costs and errors. With a commitment to creating diverse technological products, we aim to enhance efficiency across all facets of operations.
+          We specialize in streamlining <b>company processes</b> through innovative technological solutions.
+          Our focus lies in developing efficient business tools to <b>optimize</b> information management, <b>automate</b> processes, and ultimately <b>reduce</b> costs and errors.
+        </p>
+        <p className="text-center text-lg -mt-4">
+          Committed to create <b>custom</b> and diverse technological products, we aim to enhance <b>efficiency</b> across all facets of operations.
         </p>
       </div>
     </section>

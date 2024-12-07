@@ -5,7 +5,7 @@ export function ServiceCard({ icon, title, description }: { icon: string, title:
   return (
     <Popover showArrow backdrop="blur">
       <PopoverTrigger>
-        <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-slate-400 bg-opacity-10 backdrop-blur-sm  border border-slate-400 border-opacity-40 cursor-pointer w-full max-w-xs">
+        <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-slate-400 bg-opacity-10 backdrop-blur-sm  border border-slate-400 border-opacity-40 cursor-pointer w-full max-w-xs hover:bg-opacity-15 hover:-translate-y-1 transition-all">
           <Image src={icon} alt={title} width={64} height={64} />
           <h3 className="text-xl font-semibold">{title}</h3>
           {/* {description && <p className="text-center opacity-80">{description}</p>} */}
