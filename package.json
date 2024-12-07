@@ -8,11 +8,11 @@
     "prismaStudio": "npm run prismaUpdate && prisma studio --browser none",
     "prismaUpdate": "prisma db push",
     "build": "npm run prismaUpdate && next build",
-    "start": "next start",
+    "start": "next start -p 3279",
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.6.3",
+    "@nextui-org/react": "2.4",
     "@prisma/client": "^6.0.1",
     "framer-motion": "^11.13.1",
     "ip-qr": "^1.0.1",
