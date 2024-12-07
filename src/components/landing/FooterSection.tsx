@@ -12,7 +12,7 @@ export default function FooterSection() {
         <div className='flex flex-col'>
           <h2 className={`text-4xl sm:text-5xl font-bold ${styles.textGradient} self-start flex items-center sm:items-end gap-4 my-2`}>
             Bout
-            <Image src="/BoutLogoSolo.svg" alt="Logo" width={50} height={50} className="h-8 w-8 sm:h-10 sm:w-10" priority />
+            <Image src="/BoutLogoSolo.svg" alt="Logo" width={50} height={50} className="h-8 w-8 sm:h-10 sm:w-10" />
           </h2>
           <span className='text-xl sm:mt-12'>Bout&apos; the Future</span>
           <span className='flex items-center gap-2 font-mono text-sm'>

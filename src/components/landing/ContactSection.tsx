@@ -57,6 +57,7 @@ export default function ContactSection() {
           <Input
             label="Your Name"
             placeholder="How should we call you?"
+            isRequired
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
@@ -66,6 +67,8 @@ export default function ContactSection() {
           <Input
             label="Email"
             placeholder="you@example.com"
+            isRequired
+            type="email"
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
@@ -81,8 +84,10 @@ export default function ContactSection() {
             value={form.company}
             onValueChange={(value) => setForm({ ...form, company: value })}
           />
-          <Textarea label="Message"
+          <Textarea
+            label="Message"
             placeholder="Write your message"
+            isRequired
             classNames={{
               inputWrapper: "backdrop-blur-sm !bg-opacity-10 !bg-slate-400 border border-slate-600"
             }}
@@ -109,7 +114,7 @@ export default function ContactSection() {
             <Link href="tel:4424587499">
               <Image src="/images/landing/social/linkedin.svg" alt="Linkedin Logo" width={24} height={24} className="" />
             </Link>
-            <Link href="https://wa.me/524424587499">
+            <Link href="https://api.whatsapp.com/send?phone=524424587499&text=Hey%21%20Let%27s%20create%20something%20new%20together%21%21">
               <Image src="/images/landing/social/whats.svg" alt="Whatsapp Logo" width={24} height={24} className="" />
             </Link>
           </div>
