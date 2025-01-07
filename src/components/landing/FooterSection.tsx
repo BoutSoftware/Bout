@@ -60,13 +60,13 @@ export default function FooterSection() {
           </div>
           <div className='hidden sm:flex flex-col space-y-3'>
             <h3 className={`${styles.textGradiente} text-2xl font-medium`}>Our Projects</h3>
-            <Link href={"http://key-vault.vercel.app"}>
+            <Link href={"http://keyvault.bout.sh"}>
               KeyVault
             </Link>
-            <Link href={"http://riego-iot.vercel.app"}>
+            <Link href={"http://riego.bout.sh"}>
               RieGo
             </Link>
-            <Link href={"http://riego-iot.vercel.app"}>
+            <Link href={"http://riego.bout.sh"}>
               DiApp
             </Link>
           </div>
